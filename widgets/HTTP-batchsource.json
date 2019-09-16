@@ -64,7 +64,8 @@
               "csv",
               "text",
               "blob"
-            ]
+            ],
+            "default": "json"
           }
         },
         {
@@ -440,7 +441,6 @@
           "widget-type": "select",
           "label": "TrustStore Type",
           "name": "trustStoreType",
-
           "widget-attributes": {
             "default": "Java KeyStore (JKS)",
             "values": [
@@ -502,6 +502,140 @@
         "schema-default-type": "string",
         "property-watch": "format"
       }
+    }
+  ],
+  "filters": [
+    {
+      "name": "Increment an index",
+      "condition": {
+        "expression": "paginationType == 'Increment an index'"
+      },
+      "show": [
+        {
+          "name": "startIndex",
+          "type": "property"
+        },
+        {
+          "name": "maxIndex",
+          "type": "property"
+        },
+        {
+          "name": "indexIncrement",
+          "type": "property"
+        }
+      ]
+    },
+    {
+      "name": "Token in Response Body",
+      "condition": {
+        "expression": "paginationType == 'Token in response body'"
+      },
+      "show": [
+        {
+          "name": "nextPageTokenPath",
+          "type": "property"
+        },
+        {
+          "name": "nextPageUrlParameter",
+          "type": "property"
+        }
+      ]
+    },
+    {
+      "name": "Link in response body",
+      "condition": {
+        "expression": "paginationType == 'Link in response body'"
+      },
+      "show": [
+        {
+          "name": "nextPageFieldPath",
+          "type": "property"
+        }
+      ]
+    },
+    {
+      "name": "Custom pagination",
+      "condition": {
+        "expression": "paginationType == 'Custom'"
+      },
+      "show": [
+        {
+          "name": "customPaginationCode",
+          "type": "property"
+        }
+      ]
+    },
+    {
+      "name": "Pagination none",
+      "condition": {
+        "expression": "paginationType == 'None'"
+      },
+      "show": [
+        {
+          "name": "waitTimeBetweenPages",
+          "type": "property"
+        }
+      ]
+    },
+    {
+      "name": "OAuth 2 enabled",
+      "condition": {
+        "expression": "oauth2Enabled == true"
+      },
+      "show": [
+        {
+          "name": "authUrl",
+          "type": "property"
+        },
+        {
+          "name": "tokenUrl",
+          "type": "property"
+        },
+        {
+          "name": "clientId",
+          "type": "property"
+        },
+        {
+          "name": "clientSecret",
+          "type": "property"
+        },
+        {
+          "name": "scopes",
+          "type": "property"
+        },
+        {
+          "name": "refreshToken",
+          "type": "property"
+        }
+      ]
+    },
+    {
+      "name": "JSON/XML Formatting",
+      "condition": {
+        "expression": "format == 'json' || format == 'xml'"
+      },
+      "show": [
+        {
+          "name": "resultPath",
+          "type": "property"
+        },
+        {
+          "name": "fieldsMapping",
+          "type": "property"
+        }
+      ]
+    },
+    {
+      "name": "CSV Formatting",
+      "condition": {
+        "expression": "format == 'csv'"
+      },
+      "show": [
+        {
+          "name": "csvSkipFirstRow",
+          "type": "property"
+        }
+      ]
     }
   ]
 }
